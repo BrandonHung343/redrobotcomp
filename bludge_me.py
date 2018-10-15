@@ -10,7 +10,7 @@ red_h_l = np.array([10, 255, 255])
 red_l_h = np.array([170, 100, 100])
 red_h_h = np.array([180, 255, 255])
 
-blue_l = np.array([110,70,70])
+blue_l = np.array([110,100,100])
 blue_h = np.array([130,255,255])
 
 isRed = False if np.random.randint(0, 2) == 0 else True;
@@ -31,10 +31,8 @@ def color_threshold(frame, draw=None):
         _, cntL, _ = cv2.findContours(maskRL, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
         _, cntH, _ = cv2.findContours(maskRH, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
     else:
-        _, cntL, _ = cv2.findContours(maskRL, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
+        _, cntL, _ = cv2.findContours(maskB, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
     
-            
-
     maxSize = 0
     maxCnt = None
     for cnt in cntL:
@@ -61,6 +59,7 @@ def color_threshold(frame, draw=None):
     else:
         tag_center = -1
     print("x = ", tag_center)
+    print(frame.shape[1])
     return tag_center
 
 
