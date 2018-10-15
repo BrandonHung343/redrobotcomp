@@ -85,7 +85,7 @@ def main():
             if frame is not None:
                 x = color_threshold(frame, window);
                 #ser.write(struct.pack('>B', x))
-            #if ser.in_waiting > 0:
+            #if ser.inWaiting() > 0:
                 #isRed = not isRed    
                     
             k = cv2.waitKey(1) & 0xFF
